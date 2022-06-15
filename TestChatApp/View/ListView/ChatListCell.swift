@@ -219,19 +219,3 @@ extension ChatListCell {
         
     }
 }
-
-
-class BadgeLabel: UILabel {
-    
-    override var intrinsicContentSize: CGSize {
-        let defaultSize = super.intrinsicContentSize
-        return CGSize(width: defaultSize.width + 12, height: defaultSize.height + 8)
-    }
-    
-    func setRoundedCorner() {
-        self.clipsToBounds = true
-        self.layer.masksToBounds = true
-        
-        self.layer.cornerRadius = self.intrinsicContentSize.height / 2
-    }
-}
