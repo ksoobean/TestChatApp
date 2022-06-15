@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA28593E2859B04400FCA9C2 /* ChatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28593D2859B04400FCA9C2 /* ChatDetailViewController.swift */; };
+		FA2859402859B05C00FCA9C2 /* ChatListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28593F2859B05C00FCA9C2 /* ChatListCell.swift */; };
+		FA2859422859B06300FCA9C2 /* ChatDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2859412859B06300FCA9C2 /* ChatDetailCell.swift */; };
+		FA2859442859B10600FCA9C2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2859432859B10600FCA9C2 /* ListViewModel.swift */; };
+		FA2859462859B10D00FCA9C2 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2859452859B10D00FCA9C2 /* DetailViewModel.swift */; };
+		FA2859482859B11900FCA9C2 /* ChatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2859472859B11900FCA9C2 /* ChatListModel.swift */; };
+		FA28594A2859B12000FCA9C2 /* ChatDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2859492859B12000FCA9C2 /* ChatDetailModel.swift */; };
 		FADCFBF428590D11006F331A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF328590D11006F331A /* AppDelegate.swift */; };
 		FADCFBF628590D11006F331A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF528590D11006F331A /* SceneDelegate.swift */; };
 		FADCFBF828590D11006F331A /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF728590D11006F331A /* ChatListViewController.swift */; };
@@ -35,6 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA28593D2859B04400FCA9C2 /* ChatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewController.swift; sourceTree = "<group>"; };
+		FA28593F2859B05C00FCA9C2 /* ChatListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCell.swift; sourceTree = "<group>"; };
+		FA2859412859B06300FCA9C2 /* ChatDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailCell.swift; sourceTree = "<group>"; };
+		FA2859432859B10600FCA9C2 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		FA2859452859B10D00FCA9C2 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		FA2859472859B11900FCA9C2 /* ChatListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListModel.swift; sourceTree = "<group>"; };
+		FA2859492859B12000FCA9C2 /* ChatDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailModel.swift; sourceTree = "<group>"; };
 		FADCFBF028590D11006F331A /* TestChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADCFBF328590D11006F331A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADCFBF528590D11006F331A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +88,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA2859372859B00500FCA9C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA28593B2859B02F00FCA9C2 /* ListView */,
+				FA28593C2859B03500FCA9C2 /* DetailView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA2859382859B00A00FCA9C2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA2859432859B10600FCA9C2 /* ListViewModel.swift */,
+				FA2859452859B10D00FCA9C2 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FA2859392859B00E00FCA9C2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA2859472859B11900FCA9C2 /* ChatListModel.swift */,
+				FA2859492859B12000FCA9C2 /* ChatDetailModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA28593B2859B02F00FCA9C2 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				FADCFBF728590D11006F331A /* ChatListViewController.swift */,
+				FA28593F2859B05C00FCA9C2 /* ChatListCell.swift */,
+			);
+			path = ListView;
+			sourceTree = "<group>";
+		};
+		FA28593C2859B03500FCA9C2 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				FA28593D2859B04400FCA9C2 /* ChatDetailViewController.swift */,
+				FA2859412859B06300FCA9C2 /* ChatDetailCell.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
 		FADCFBE728590D10006F331A = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +158,9 @@
 			children = (
 				FADCFBF328590D11006F331A /* AppDelegate.swift */,
 				FADCFBF528590D11006F331A /* SceneDelegate.swift */,
-				FADCFBF728590D11006F331A /* ChatListViewController.swift */,
+				FA2859392859B00E00FCA9C2 /* Model */,
+				FA2859382859B00A00FCA9C2 /* ViewModel */,
+				FA2859372859B00500FCA9C2 /* View */,
 				FADCFBFC28590D11006F331A /* Assets.xcassets */,
 				FADCFBFE28590D11006F331A /* LaunchScreen.storyboard */,
 				FADCFC0128590D11006F331A /* Info.plist */,
@@ -254,9 +315,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA28594A2859B12000FCA9C2 /* ChatDetailModel.swift in Sources */,
+				FA2859402859B05C00FCA9C2 /* ChatListCell.swift in Sources */,
 				FADCFBF828590D11006F331A /* ChatListViewController.swift in Sources */,
+				FA2859442859B10600FCA9C2 /* ListViewModel.swift in Sources */,
+				FA2859482859B11900FCA9C2 /* ChatListModel.swift in Sources */,
+				FA2859422859B06300FCA9C2 /* ChatDetailCell.swift in Sources */,
 				FADCFBF428590D11006F331A /* AppDelegate.swift in Sources */,
 				FADCFBF628590D11006F331A /* SceneDelegate.swift in Sources */,
+				FA28593E2859B04400FCA9C2 /* ChatDetailViewController.swift in Sources */,
+				FA2859462859B10D00FCA9C2 /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
