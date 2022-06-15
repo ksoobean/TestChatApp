@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		FADCFBF428590D11006F331A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF328590D11006F331A /* AppDelegate.swift */; };
 		FADCFBF628590D11006F331A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF528590D11006F331A /* SceneDelegate.swift */; };
-		FADCFBF828590D11006F331A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF728590D11006F331A /* ViewController.swift */; };
-		FADCFBFB28590D11006F331A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADCFBF928590D11006F331A /* Main.storyboard */; };
+		FADCFBF828590D11006F331A /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF728590D11006F331A /* ChatListViewController.swift */; };
 		FADCFBFD28590D11006F331A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADCFBFC28590D11006F331A /* Assets.xcassets */; };
 		FADCFC0028590D11006F331A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADCFBFE28590D11006F331A /* LaunchScreen.storyboard */; };
 		FADCFC0B28590D11006F331A /* TestChatAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFC0A28590D11006F331A /* TestChatAppTests.swift */; };
@@ -39,8 +38,7 @@
 		FADCFBF028590D11006F331A /* TestChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADCFBF328590D11006F331A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADCFBF528590D11006F331A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FADCFBF728590D11006F331A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FADCFBFA28590D11006F331A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FADCFBF728590D11006F331A /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		FADCFBFC28590D11006F331A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FADCFBFF28590D11006F331A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FADCFC0128590D11006F331A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,8 +99,7 @@
 			children = (
 				FADCFBF328590D11006F331A /* AppDelegate.swift */,
 				FADCFBF528590D11006F331A /* SceneDelegate.swift */,
-				FADCFBF728590D11006F331A /* ViewController.swift */,
-				FADCFBF928590D11006F331A /* Main.storyboard */,
+				FADCFBF728590D11006F331A /* ChatListViewController.swift */,
 				FADCFBFC28590D11006F331A /* Assets.xcassets */,
 				FADCFBFE28590D11006F331A /* LaunchScreen.storyboard */,
 				FADCFC0128590D11006F331A /* Info.plist */,
@@ -233,7 +230,6 @@
 			files = (
 				FADCFC0028590D11006F331A /* LaunchScreen.storyboard in Resources */,
 				FADCFBFD28590D11006F331A /* Assets.xcassets in Resources */,
-				FADCFBFB28590D11006F331A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADCFBF828590D11006F331A /* ViewController.swift in Sources */,
+				FADCFBF828590D11006F331A /* ChatListViewController.swift in Sources */,
 				FADCFBF428590D11006F331A /* AppDelegate.swift in Sources */,
 				FADCFBF628590D11006F331A /* SceneDelegate.swift in Sources */,
 			);
@@ -297,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FADCFBF928590D11006F331A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FADCFBFA28590D11006F331A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FADCFBFE28590D11006F331A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +430,6 @@
 				INFOPLIST_FILE = TestChatApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +457,6 @@
 				INFOPLIST_FILE = TestChatApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
