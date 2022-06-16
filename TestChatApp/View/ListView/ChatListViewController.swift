@@ -48,11 +48,30 @@ class ChatListViewController: UITableViewController {
         self.tableView.register(ChatListCell.self,
                                 forCellReuseIdentifier: ChatListCell.identifier)
         
+        // 테이블뷰 데이터
         self.listViewModel.listData
             .bind(to: self.tableView.rx.items(cellIdentifier: ChatListCell.identifier,
-                                              cellType: ChatListCell.self)) { row, chat, cell in
-                cell.configureCell(with: chat)
+                                              cellType: ChatListCell.self)) { row, cellVM, cell in
+                cell.configureCell(with: cellVM)
             }.disposed(by: disposeBag)
+        
+        // 테이블뷰 셀 클릭 액션
+        Observable
+            .zip(tableView.rx.modelSelected(ChatCellViewModel.self),
+                 tableView.rx.itemSelected)
+            .subscribe(onNext: { [weak self] (cellVM, indexPath) in
+                self?.tableView.deselectRow(at: indexPath, animated: false)
+                
+                guard -1 != cellVM.roomId else {
+                    // roomID가 없는 경우 상세뷰 로드 X
+                    return
+                }
+                
+                let detailVC = ChatDetailViewController(detailVM: DetailViewModel(roomId: cellVM.roomId))
+                self?.navigationController?.pushViewController(detailVC, animated: true)
+                
+            }).disposed(by: disposeBag)
+        
     }
 
     

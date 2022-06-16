@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import SnapKit
 import RxSwift
 
@@ -13,7 +14,7 @@ class ChatListCell: UITableViewCell {
     
     static let identifier: String = "ChatListCell"
     
-    private var cellVM: ChatViewModel!
+    private var cellVM: ChatCellViewModel!
     
     /// 이름
     private let nameLabel: UILabel = UILabel()
@@ -66,7 +67,7 @@ class ChatListCell: UITableViewCell {
     /// cell 꾸며주는 함수
     /// - Parameters:
     ///   - cellVM: ChatViewModel
-    public func configureCell(with cellVM: ChatViewModel) {
+    public func configureCell(with cellVM: ChatCellViewModel) {
         self.cellVM = cellVM
         
         self.nameLabel.text = cellVM.name
@@ -77,7 +78,8 @@ class ChatListCell: UITableViewCell {
         // 안읽음 카운트 배지 라벨 셋팅
         self.setUnreadCountLabel()
         
-        self.requestAvatarImage(with: cellVM.profileURL)
+        // 프로필 이미지 셋팅
+        APIService.shared.requestProfileImage(with: cellVM.profileURL)
             .observe(on: MainScheduler.instance)
             .subscribe { image in
                 self.profileImageView.image = image
@@ -102,21 +104,6 @@ class ChatListCell: UITableViewCell {
         self.unreadCountLabel.setRoundedCorner()
     }
     
-    //MARK: - 아바타 URL로부터 이미지 데이터 생성하기
-    
-    /// 아바타 URL로부터 이미지 데이터 생성하기
-    /// - Parameter urlString: avatar_url
-    /// - Returns: Observable<UIImage>
-    public func requestAvatarImage(with urlString: String) -> Observable<UIImage> {
-        
-        guard let url = URL(string: urlString),
-                let data = try? Data(contentsOf: url),
-                let image = UIImage(data: data) else {
-            return Observable.empty()
-        }
-        
-        return Observable.just(image)
-      }
 }
 
 
@@ -193,7 +180,6 @@ extension ChatListCell {
         // 날짜 라벨 레이아웃
         dateLabel.snp.remakeConstraints { make in
             make.centerY.equalTo(nameLabel.snp.centerY)
-            make.width.equalTo(50)
             make.trailing.equalToSuperview().offset(-16).priority(.high)
         }
         

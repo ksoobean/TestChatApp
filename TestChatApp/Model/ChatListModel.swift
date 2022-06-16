@@ -9,6 +9,9 @@ import Foundation
 
 struct ChatListModel: Codable {
     
+    /// 채팅방 구분을 위한 룸 ID
+    let roomId: Int?
+    
     /// 이름
     let userName: String?
     /// 소속
