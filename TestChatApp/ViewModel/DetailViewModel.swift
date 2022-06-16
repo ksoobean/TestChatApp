@@ -27,9 +27,9 @@ class DetailViewModel {
         self.naviDescription = "iOS개발자 @회사회사회사이름"
         
         let testData: [ChatDetailCellViewModel] = [
-            ChatDetailCellViewModel(content: ChatContentInfo(date: "2022-06-15", content: "안녕하세요.")),
-            ChatDetailCellViewModel(content: ChatContentInfo(date: "2022-06-15", content: "아 죄송해요. 이제야 메세지를 봤습니다. 저도 반가웠습니다! 어떤 부탁인가요?")),
-            ChatDetailCellViewModel(content: ChatContentInfo(date: "2022-06-15", content: "안녕하세요. 홍로켓님 잘 지내셨나요? 일전에 UX 세미나에서 반가웠습니다. 다름이 아니라 부탁드릴 것이 있어서 이렇게 연락드립니다."))
+            ChatDetailCellViewModel(content: ChatContentInfo(writerName: "AAA", date: "2022-06-15", content: "안녕하세요.")),
+            ChatDetailCellViewModel(content: ChatContentInfo(writerName: "현재사용자이름", date: "2022-06-15", content: "아 죄송해요. 이제야 메세지를 봤습니다. 저도 반가웠습니다! 어떤 부탁인가요?")),
+            ChatDetailCellViewModel(content: ChatContentInfo(writerName: "AAA", date: "2022-06-15", content: "안녕하세요. 홍로켓님 잘 지내셨나요? 일전에 UX 세미나에서 반가웠습니다. 다름이 아니라 부탁드릴 것이 있어서 이렇게 연락드립니다."))
         ]
         
         self.listData.accept(testData)
@@ -57,4 +57,7 @@ extension ChatDetailCellViewModel {
         return chatContent.content ?? ""
     }
     
+    var isMyChat: Bool {
+        return chatContent.writerName == Util.shared.userName
+    }
 }

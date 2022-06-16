@@ -54,6 +54,9 @@ class ChatDetailCell: UITableViewCell {
         self.dateLabel.text = cellVM.date
         
         self.setContentLabel()
+        
+        // 상대방 대화/자기 자신 대화일 때 레이아웃이 다름
+        self.setConstraint()
     }
     
     private func setContentLabel() {
@@ -61,6 +64,9 @@ class ChatDetailCell: UITableViewCell {
         self.contentLabel.text = cellVM.content
         self.contentLabel.setPadding(top: 10, bottom: 10, left: 10, right: 10)
         self.contentLabel.setRoundedCorner(with: 10)
+        
+        contentLabel.textColor = self.cellVM.isMyChat ? .white : .black
+        contentLabel.backgroundColor = self.cellVM.isMyChat ? .systemBlue : .lightGray
     }
     
 }
@@ -83,42 +89,38 @@ extension ChatDetailCell {
         self.contentView.addSubview(contentLabel)
         
         contentLabel.font = UIFont.systemFont(ofSize: 18)
-        contentLabel.textColor = .black
         contentLabel.numberOfLines = 0 // 여러줄 가능
         contentLabel.textAlignment = .left
-        contentLabel.backgroundColor = .lightGray
         
-        self.setConstraint()
     }
     
     /// 하위 뷰 레이아웃 셋팅
     private func setConstraint() {
         
-        contentLabel.snp.remakeConstraints { make in
-            make.trailing.equalToSuperview().offset(-16)
+        contentLabel.snp.remakeConstraints { [unowned self] make in
+            if self.cellVM.isMyChat {
+                // 내 대화: 오른쪽
+                make.trailing.equalToSuperview().offset(-16)
+            } else {
+                // 상대방: 왼쪽
+                make.leading.equalToSuperview().offset(16)
+            }
             make.top.bottom.greaterThanOrEqualTo(10)
             make.centerY.equalToSuperview()
-            make.width.lessThanOrEqualTo(contentView.frame.width * 3/4) // 최대 너비 지정
+            make.width.lessThanOrEqualTo(self.contentView.frame.width * 3/4) // 최대 너비 지정
         }
         
-        dateLabel.snp.remakeConstraints { make in
-            make.trailing.equalTo(contentLabel.snp.leading).offset(-16)
-            make.bottom.equalTo(contentLabel.snp.bottom).offset(-8)
+        dateLabel.snp.remakeConstraints { [unowned self] make in
+            if self.cellVM.isMyChat {
+                // 내 대화: 날짜가 대화 왼쪽에 붙음
+                make.trailing.equalTo(self.contentLabel.snp.leading).offset(-16)
+            } else {
+                // 상대방: 날짜가 대화 오른쪽에 붙음
+                make.leading.equalTo(self.contentLabel.snp.trailing).offset(16)
+            }
+            make.bottom.equalTo(self.contentLabel.snp.bottom).offset(-8)
         }
         
-//        // 날짜 라벨 레이아웃
-//        dateLabel.snp.remakeConstraints { make in
-//            make.centerY.equalTo(nameLabel.snp.centerY)
-//            make.width.equalTo(50)
-//            make.trailing.equalToSuperview().offset(-16).priority(.high)
-//        }
-//        
-//        // 대화 내용 라벨 레이아웃
-//        contentLabel.snp.remakeConstraints { make in
-//            make.leading.equalTo(nameLabel.snp.leading)
-//            make.top.equalTo(descriptionLabel.snp.bottom).offset(10)
-//            make.trailing.equalTo(dateLabel.snp.leading).offset(-30)
-//        }
         
     }
 }

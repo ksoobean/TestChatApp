@@ -18,6 +18,9 @@ struct ChatDetailModel: Codable {
 }
 
 struct ChatContentInfo: Codable {
+    
+    /// 대화 작성자
+    let writerName: String?
     /// 대화 날짜
     let date: String?
     /// 대화 내용

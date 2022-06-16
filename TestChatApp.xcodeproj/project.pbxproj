@@ -19,6 +19,7 @@
 		FA28594A2859B12000FCA9C2 /* ChatDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2859492859B12000FCA9C2 /* ChatDetailModel.swift */; };
 		FA28594D2859D19400FCA9C2 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28594C2859D19400FCA9C2 /* APIService.swift */; };
 		FA2859502859D1C500FCA9C2 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28594F2859D1C500FCA9C2 /* PaddingLabel.swift */; };
+		FA285953285B548D00FCA9C2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA285952285B548D00FCA9C2 /* Util.swift */; };
 		FADCFBF428590D11006F331A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF328590D11006F331A /* AppDelegate.swift */; };
 		FADCFBF628590D11006F331A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF528590D11006F331A /* SceneDelegate.swift */; };
 		FADCFBF828590D11006F331A /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF728590D11006F331A /* ChatListViewController.swift */; };
@@ -63,6 +64,7 @@
 		FA2859492859B12000FCA9C2 /* ChatDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailModel.swift; sourceTree = "<group>"; };
 		FA28594C2859D19400FCA9C2 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FA28594F2859D1C500FCA9C2 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		FA285952285B548D00FCA9C2 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		FADCFBF028590D11006F331A /* TestChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADCFBF328590D11006F331A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADCFBF528590D11006F331A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +186,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		FA285951285B548100FCA9C2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				FA285952285B548D00FCA9C2 /* Util.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		FADCFBE728590D10006F331A = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +221,7 @@
 			children = (
 				FADCFBF328590D11006F331A /* AppDelegate.swift */,
 				FADCFBF528590D11006F331A /* SceneDelegate.swift */,
+				FA285951285B548100FCA9C2 /* Util */,
 				FA28594B2859D18D00FCA9C2 /* Service */,
 				FA2859392859B00E00FCA9C2 /* Model */,
 				FA2859382859B00A00FCA9C2 /* ViewModel */,
@@ -484,6 +495,7 @@
 				FA28594D2859D19400FCA9C2 /* APIService.swift in Sources */,
 				FA2859482859B11900FCA9C2 /* ChatListModel.swift in Sources */,
 				FA2859502859D1C500FCA9C2 /* PaddingLabel.swift in Sources */,
+				FA285953285B548D00FCA9C2 /* Util.swift in Sources */,
 				FA2859422859B06300FCA9C2 /* ChatDetailCell.swift in Sources */,
 				FADCFBF428590D11006F331A /* AppDelegate.swift in Sources */,
 				FADCFBF628590D11006F331A /* SceneDelegate.swift in Sources */,
