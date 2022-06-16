@@ -18,7 +18,7 @@
 		FA2859482859B11900FCA9C2 /* ChatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2859472859B11900FCA9C2 /* ChatListModel.swift */; };
 		FA28594A2859B12000FCA9C2 /* ChatDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2859492859B12000FCA9C2 /* ChatDetailModel.swift */; };
 		FA28594D2859D19400FCA9C2 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28594C2859D19400FCA9C2 /* APIService.swift */; };
-		FA2859502859D1C500FCA9C2 /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28594F2859D1C500FCA9C2 /* BadgeLabel.swift */; };
+		FA2859502859D1C500FCA9C2 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28594F2859D1C500FCA9C2 /* PaddingLabel.swift */; };
 		FADCFBF428590D11006F331A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF328590D11006F331A /* AppDelegate.swift */; };
 		FADCFBF628590D11006F331A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF528590D11006F331A /* SceneDelegate.swift */; };
 		FADCFBF828590D11006F331A /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF728590D11006F331A /* ChatListViewController.swift */; };
@@ -62,7 +62,7 @@
 		FA2859472859B11900FCA9C2 /* ChatListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListModel.swift; sourceTree = "<group>"; };
 		FA2859492859B12000FCA9C2 /* ChatDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailModel.swift; sourceTree = "<group>"; };
 		FA28594C2859D19400FCA9C2 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		FA28594F2859D1C500FCA9C2 /* BadgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
+		FA28594F2859D1C500FCA9C2 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		FADCFBF028590D11006F331A /* TestChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADCFBF328590D11006F331A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADCFBF528590D11006F331A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 			children = (
 				FADCFBF728590D11006F331A /* ChatListViewController.swift */,
 				FA28593F2859B05C00FCA9C2 /* ChatListCell.swift */,
-				FA28594F2859D1C500FCA9C2 /* BadgeLabel.swift */,
+				FA28594F2859D1C500FCA9C2 /* PaddingLabel.swift */,
 			);
 			path = ListView;
 			sourceTree = "<group>";
@@ -483,7 +483,7 @@
 				FA2859442859B10600FCA9C2 /* ListViewModel.swift in Sources */,
 				FA28594D2859D19400FCA9C2 /* APIService.swift in Sources */,
 				FA2859482859B11900FCA9C2 /* ChatListModel.swift in Sources */,
-				FA2859502859D1C500FCA9C2 /* BadgeLabel.swift in Sources */,
+				FA2859502859D1C500FCA9C2 /* PaddingLabel.swift in Sources */,
 				FA2859422859B06300FCA9C2 /* ChatDetailCell.swift in Sources */,
 				FADCFBF428590D11006F331A /* AppDelegate.swift in Sources */,
 				FADCFBF628590D11006F331A /* SceneDelegate.swift in Sources */,

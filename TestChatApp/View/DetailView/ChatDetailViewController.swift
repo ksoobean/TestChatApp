@@ -37,22 +37,18 @@ class ChatDetailViewController: UITableViewController {
         
     }
     
-    /// 네비게이션 오른족 [새 메시지] 버튼 액션
-    /// 새로운 채팅방 추가
-    @objc func newMessageAction() {
-        
-    }
-    
     private func configureTableView() {
         self.tableView.delegate = nil
         self.tableView.dataSource = nil
         
-        self.tableView.rx
-            .setDelegate(self)
-            .disposed(by: disposeBag)
-        
         self.tableView.register(ChatDetailCell.self,
                                 forCellReuseIdentifier: ChatDetailCell.identifier)
+
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 80
+        
+        self.tableView.allowsSelection = false
+        self.tableView.separatorStyle = .none
         
         // 테이블뷰 데이터
         self.detailViewModel.listData
@@ -61,25 +57,8 @@ class ChatDetailViewController: UITableViewController {
                 cell.configureCell(with: cellVM)
             }.disposed(by: disposeBag)
         
-        // 테이블뷰 셀 클릭 액션
-        Observable
-            .zip(tableView.rx.modelSelected(ChatDetailCellViewModel.self),
-                 tableView.rx.itemSelected)
-            .subscribe(onNext: { [weak self] (cellVM, indexPath) in
-                self?.tableView.deselectRow(at: indexPath, animated: false)
-                
-            }).disposed(by: disposeBag)
         
     }
 
-    
-}
-
-//MARK: - UITableViewDelegate
-extension ChatDetailViewController {
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
-    }
     
 }

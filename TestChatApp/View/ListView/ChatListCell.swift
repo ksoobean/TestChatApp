@@ -27,7 +27,7 @@ class ChatListCell: UITableViewCell {
     /// 가장 마지막 최근 대화
     private let recentChatLabel: UILabel = UILabel()
     /// 대화 카운트 배지
-    private let unreadCountLabel: BadgeLabel = BadgeLabel()
+    private let unreadCountLabel: PaddingLabel = PaddingLabel()
     
     
     let disposeBag = DisposeBag()
@@ -101,7 +101,8 @@ class ChatListCell: UITableViewCell {
         
         self.unreadCountLabel.isHidden = false
         self.unreadCountLabel.text = cellVM.unreadCount
-        self.unreadCountLabel.setRoundedCorner()
+        self.unreadCountLabel.setPadding(top: 4, bottom: 4, left: 8, right: 8)
+        self.unreadCountLabel.setRoundedCorner(with: self.unreadCountLabel.intrinsicContentSize.height / 2)
     }
     
 }
