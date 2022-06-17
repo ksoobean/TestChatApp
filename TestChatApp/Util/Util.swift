@@ -23,4 +23,26 @@ class Util {
             return _userName
         }
     }
+    
+    /// 사용자 직업 정보
+    private var _job: String = ""
+    var userJob: String {
+        set {
+            _job = newValue
+        }
+        get {
+            return _job
+        }
+    }
+    
+    /// 사용자 회사 정보
+    private var _company: String = ""
+    var company: String {
+        set {
+            _company = newValue
+        }
+        get {
+            return _company
+        }
+    }
 }

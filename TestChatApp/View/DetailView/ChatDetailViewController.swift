@@ -32,9 +32,28 @@ class ChatDetailViewController: UITableViewController {
     }
 
     private func configureNavigation() {
-        self.title = detailViewModel.naviTitle
+        self.detailViewModel.naviTitle
+            .bind(to: self.rx.title)
+            .disposed(by: disposeBag)
+        
         self.navigationController?.navigationBar.prefersLargeTitles = false
         
+        // 오른쪽 새 메세지 버튼
+        let newMessageButton = UIBarButtonItem(title: "새 메시지", style: .plain, target: self, action: #selector(newMessageAction))
+        
+        self.navigationItem.rightBarButtonItem = newMessageButton
+    }
+    
+    /// 네비게이션 오른족 [새 메시지] 버튼 액션
+    /// 새로운 채팅방 추가
+    @objc func newMessageAction() {
+        // 임시 테스트용
+        // 채팅방 랜덤 생성
+        
+        let str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let randomContent = (0..<20).map{ _ in str.randomElement()! }
+        
+        self.detailViewModel.sendChat(content: String(randomContent))
     }
     
     private func configureTableView() {

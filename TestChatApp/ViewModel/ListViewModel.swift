@@ -22,15 +22,22 @@ class ListViewModel {
         self.requestChatList()
     }
     
+    /// 리스트 요청
     private func requestChatList() {
-        let testData: [ChatCellViewModel] = [
-            ChatCellViewModel(chatModel: ChatListModel(roomId: 123123, userName: "BBB", jobDescription: "iOS개발자 @회사회사회사이름", profileImageUrl: "https://source.unsplash.com/user/c_v_r", recentChat: "가장 최근 대화입니다. 어떻게 표시되나 확인차 길게 써봅니다.", unreadCount: 999, lastChatDate: "어제")),
-            ChatCellViewModel(chatModel: ChatListModel(roomId: 234234, userName: "CCcCCCCCCC", jobDescription: "iOS개발자 @회사회사회사이름이름이름", profileImageUrl: "https://source.unsplash.com/user/c_v_r", recentChat: "가장 최근 대화입니다. ", unreadCount: 12, lastChatDate: "3일전")),
-            ChatCellViewModel(chatModel: ChatListModel(roomId: nil, userName: "AAAa", jobDescription: "iOS개발자 @회사회사회사이름이름이름", profileImageUrl: "https://source.unsplash.com/user/c_v_r", recentChat: "안읽음카운트 없음 ", unreadCount: 0, lastChatDate: "2022.05.12"))
-            
-        ]
+        APIService.shared.requestChatList()
+            .map { chatList in
+                chatList.map { ChatCellViewModel(chatModel: $0) }
+            }
+            .subscribe(onNext: { [weak self] value in
+                self?.listData.accept(value)
+            }).disposed(by: disposeBag)
+    }
+    
+    public func addNewChatRoom(with name: String, job: String, company: String, profileUrl: String) {
         
-        self.listData.accept(testData)
+        APIService.shared.addNewChatRoom(with: name, job: job, company: company, profileUrl: profileUrl)
+        // 리스트 데이터 재조회
+        self.requestChatList()
     }
 }
 
@@ -59,7 +66,10 @@ extension ChatCellViewModel {
     }
     
     var jobDescription: String {
-        return chat.jobDescription ?? ""
+        if let job: String = chat.job, let comp: String = chat.company {
+            return "\(job)@\(comp)"
+        }
+        return ""
     }
     
     var recentChat: String {

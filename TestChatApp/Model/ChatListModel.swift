@@ -9,13 +9,15 @@ import Foundation
 
 struct ChatListModel: Codable {
     
-    /// 채팅방 구분을 위한 룸 ID
+    /// 채팅방 구분을 위한 room ID
     let roomId: Int?
     
     /// 이름
     let userName: String?
-    /// 소속
-    let jobDescription: String?
+    /// 회사
+    let company: String?
+    /// 직업
+    let job: String?
     /// 프로필 이미지 url
     let profileImageUrl: String?
     /// 최근 대화 내용

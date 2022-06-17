@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         Util.shared.userName = "현재사용자이름"
+        Util.shared.userJob = "사용자직업"
+        Util.shared.company = "사용자회사"
         
         return true
     }

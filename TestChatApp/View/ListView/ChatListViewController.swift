@@ -34,7 +34,19 @@ class ChatListViewController: UITableViewController {
     /// 네비게이션 오른족 [새 메시지] 버튼 액션
     /// 새로운 채팅방 추가
     @objc func newMessageAction() {
+        // 임시 테스트용
+        // 채팅방 랜덤 생성
         
+        let str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let randomName = (0..<5).map{ _ in str.randomElement()! }
+        let randomJob = (0..<5).map{ _ in str.randomElement()! }
+        let randomCompany = (0..<5).map{ _ in str.randomElement()! }
+        
+        
+        self.listViewModel.addNewChatRoom(with: String(randomName),
+                                          job: String(randomJob),
+                                          company: String(randomCompany),
+                                          profileUrl: "https://source.unsplash.com/user/c_v_r")
     }
     
     private func configureTableView() {
