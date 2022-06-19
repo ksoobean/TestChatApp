@@ -10,7 +10,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ChatDetailViewController: UITableViewController {
+class ChatDetailViewController: UIViewController {
+    
+    private var tableView: UITableView = UITableView()
+    private var inputBox: InputBox = InputBox()
     
     private var disposeBag = DisposeBag()
     let detailViewModel: DetailViewModel!
@@ -24,11 +27,25 @@ class ChatDetailViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // 키보드 노티 등록
+        self.registerForKeyboardNotification()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // 키보드 노티 제거
+        self.unregisterForKeyboardNotification()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.configureNavigation()
-        self.configureTableView()
+        
+        self.configureUI()
+        
     }
 
     private func configureNavigation() {
@@ -38,27 +55,35 @@ class ChatDetailViewController: UITableViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = false
         
-        // 오른쪽 새 메세지 버튼
-        let newMessageButton = UIBarButtonItem(title: "새 메시지", style: .plain, target: self, action: #selector(newMessageAction))
-        
-        self.navigationItem.rightBarButtonItem = newMessageButton
     }
     
-    /// 네비게이션 오른족 [새 메시지] 버튼 액션
-    /// 새로운 채팅방 추가
-    @objc func newMessageAction() {
-        // 임시 테스트용
-        // 채팅방 랜덤 생성
+    
+    private func configureUI() {
         
-        let str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let randomContent = (0..<20).map{ _ in str.randomElement()! }
+        self.view.addSubview(self.tableView)
+        self.configureTableView()
         
-        self.detailViewModel.sendChat(content: String(randomContent))
+        self.view.addSubview(inputBox)
+        self.configureInputBox()
+        
+        
+        self.setConstraint()
+    }
+    
+    private func setConstraint() {
+        
+        self.tableView.snp.remakeConstraints { make in
+            make.leading.trailing.top.equalToSuperview()
+        }
+        
+        self.inputBox.snp.remakeConstraints { make in
+            make.top.equalTo(self.tableView.snp.bottom)
+            make.height.equalTo(80)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
     }
     
     private func configureTableView() {
-        self.tableView.delegate = nil
-        self.tableView.dataSource = nil
         
         self.tableView.register(ChatDetailCell.self,
                                 forCellReuseIdentifier: ChatDetailCell.identifier)
@@ -76,8 +101,76 @@ class ChatDetailViewController: UITableViewController {
                 cell.configureCell(with: cellVM)
             }.disposed(by: disposeBag)
         
-        
     }
 
+    private func configureInputBox() {
+        
+        self.view.addSubview(inputBox)
+        
+        self.inputBox.delegate = self
+    }
     
+}
+
+//MARK: - InputBoxProtocol
+extension ChatDetailViewController: InputBoxProtocol {
+    func sendMessage(with text: String) {
+        
+        self.detailViewModel.sendChat(content: text)
+    }
+    
+    
+}
+
+//MARK: - 키보드 관련 로직.
+extension ChatDetailViewController {
+    
+    /// 키보드 옵저버 등록
+    func registerForKeyboardNotification() {
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardShow(noti:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardHide(noti:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    /// 키보드 옵저버 등록 해제
+    func unregisterForKeyboardNotification() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: UIResponder.keyboardWillShowNotification,
+                                                  object: nil)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: UIResponder.keyboardWillHideNotification,
+                                                  object: nil)
+    }
+    
+    /// 키보드 보이기  처리
+    @objc func keyboardShow(noti: NSNotification) {
+        if noti.name == UIResponder.keyboardWillShowNotification,
+           let keyboardSize = (noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            self.inputBox.snp.updateConstraints { make in
+                make.bottom.equalTo(CGFloat((-1) * Int(keyboardSize.height)))
+            }
+        }
+    }
+    
+    /// 키보드 숨기기 처리
+    @objc func keyboardHide(noti: NSNotification) {
+        self.inputBox.snp.updateConstraints { make in
+            make.bottom.equalToSuperview()
+        }
+    }
+        
+    /// 화면 터치했을 때 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        self.inputBox.snp.updateConstraints { make in
+            make.bottom.equalToSuperview()
+        }
+    }
 }

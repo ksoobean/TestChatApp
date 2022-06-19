@@ -68,9 +68,16 @@ struct ChatDetailCellViewModel {
 extension ChatDetailCellViewModel {
     
     var date: String {
-//        let date = Date(timeIntervalSince1970: chatContent.timeStamp)
-        let date = Date(timeIntervalSince1970: 0)
-        return "\(date)"
+        let date = Date(timeIntervalSince1970: chatContent.timeStamp ?? 0)
+        
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_kr")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
+        formatter.dateFormat = "HH:mm"
+
+        let kr = formatter.string(from: date)
+        
+        return "\(kr)"
     }
     
     var content: String {

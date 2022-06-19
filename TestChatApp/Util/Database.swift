@@ -67,7 +67,7 @@ class Database {
         var newChatList = findChatDetail?.chatList
         // 테스트를 위해 상대방과 자기자신 중 랜덤으로 작성자 셋팅
         newChatList?.append(ChatContentInfo(writerName: [Util.shared.userName, findChatDetail?.name].randomElement()!,
-                                            timeStamp: Int(Date().timeIntervalSince1970 * 1000),
+                                            timeStamp: Date().timeIntervalSince1970,
                                             content: content))
         
         self.setChatDetailInfo(with: ChatDetailModel(roomId: roomId,

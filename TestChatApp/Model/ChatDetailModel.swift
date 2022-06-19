@@ -28,7 +28,7 @@ struct ChatContentInfo: Codable {
     /// 대화 작성자
     let writerName: String?
     /// 타임스탬프
-    let timeStamp: Int?
+    let timeStamp: Double?
     /// 대화 내용
     let content: String?
 }

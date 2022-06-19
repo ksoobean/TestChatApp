@@ -21,6 +21,7 @@
 		FA2859502859D1C500FCA9C2 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28594F2859D1C500FCA9C2 /* PaddingLabel.swift */; };
 		FA285953285B548D00FCA9C2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA285952285B548D00FCA9C2 /* Util.swift */; };
 		FA285955285BA84500FCA9C2 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA285954285BA84500FCA9C2 /* Database.swift */; };
+		FA545086285F040B005A372E /* InputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA545085285F040B005A372E /* InputBox.swift */; };
 		FADCFBF428590D11006F331A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF328590D11006F331A /* AppDelegate.swift */; };
 		FADCFBF628590D11006F331A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF528590D11006F331A /* SceneDelegate.swift */; };
 		FADCFBF828590D11006F331A /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCFBF728590D11006F331A /* ChatListViewController.swift */; };
@@ -67,6 +68,7 @@
 		FA28594F2859D1C500FCA9C2 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		FA285952285B548D00FCA9C2 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		FA285954285BA84500FCA9C2 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		FA545085285F040B005A372E /* InputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBox.swift; sourceTree = "<group>"; };
 		FADCFBF028590D11006F331A /* TestChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADCFBF328590D11006F331A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADCFBF528590D11006F331A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				FA28593B2859B02F00FCA9C2 /* ListView */,
 				FA28593C2859B03500FCA9C2 /* DetailView */,
 				FA28594F2859D1C500FCA9C2 /* PaddingLabel.swift */,
+				FA545085285F040B005A372E /* InputBox.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				FA28593E2859B04400FCA9C2 /* ChatDetailViewController.swift in Sources */,
 				FA285955285BA84500FCA9C2 /* Database.swift in Sources */,
 				FA2859462859B10D00FCA9C2 /* DetailViewModel.swift in Sources */,
+				FA545086285F040B005A372E /* InputBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
